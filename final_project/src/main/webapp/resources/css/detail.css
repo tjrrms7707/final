@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+.insertText{
+	padding-top:50px;
+	width: 400px;
+	margin: 0 auto;
+}
+
+#qe{
+	width:270px;
+	margin-left: 50px;
+}

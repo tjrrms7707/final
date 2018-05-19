@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+/* header */
+.carousel-caption {
+	margin-bottom: 5%;
+}
+
+#top-logo {
+	margin-bottom: 0;
+	margin-right: 30%;
+}
+
+#top-link-top {
+	margin: 0 3% 0 auto;
+}
+
+#moving-bar .navbar-nav {
+	margin: 0 auto 0 auto;
+}
+
+.nav-item #link {
+	padding-top: 0;
+	margin-right: 10%;
+	width: 100px;
+}

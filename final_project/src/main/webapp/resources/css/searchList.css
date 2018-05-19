@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+/* body */
+#body {
+	margin: 5% 17% 5% 17%;
+}
+/* searching */
+#search {
+	display: block;
+	margin: 0 30% 5% 30%;
+}
+/* pagination */
+.pagination {
+	margin: auto 40% auto 40%;
+}
+
+/* 지역,카테고리별 사진List */
+.list .container{
+}
+
+.container .row{
+}
+
+.list .img-responsive {
+	width: 350px;
+	height: 200px;
+	margin: 20% auto 20% auto;
+}
+.list .img-responsive:hover {
+	filter: grayscale(0%);
+	brightness: 150%;
+}
+.list .carousel-caption {
+	text-align: center;
+	width: 50px;
+}
+.col-md-3 .a:HOVER {
+	opacity: 1;
+}
+.carousel-caption h5 {
+	color: white;
+}	
+.carousel-caption h7{
+color: white;
+}
+.col-md-3 img{
+margin: 20% 0 20% 0;
+
+}
+.col-md-3 img:hover{
+filter: grayscale(0%);
+brightness: 150%;
+}

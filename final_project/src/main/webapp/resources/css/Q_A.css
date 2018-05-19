@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+.Q_A{
+	width: 650px;
+}
+
+.Q_Atable{
+	padding-top: 50px;
+	width:650px;
+	margin: 0 auto;
+}
+
+.FAQtable{
+	padding-top: 50px;
+	width:650px;
+	margin: 0 auto;
+}
+
+.page{
+	width:220px;
+	padding-top: 50px;
+	margin: 0 auto;
+}
+
+th{
+	text-align: center !important; 
+}
+
+.txtCen{
+	text-align: center !important;
+}
+
+.pad{
+	padding-left: 100px !important;
+}
+.faqhover{
+	cursor: pointer;
+}
+.signButton{
+	
+}
+
+#qbtn{
+	margin-left: 400px;
+}
+
+.search{
+	width:300px;
+	margin: 0 auto;
+}

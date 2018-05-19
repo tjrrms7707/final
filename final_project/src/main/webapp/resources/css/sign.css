@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+#sign{
+	display: inherit;
+}
+
+form{
+	padding-top:100px;
+	width: 400px;
+	margin: 0 auto;
+}
+#join{
+	width: 270px;
+	margin: 0 auto;
+}
+
+.signCheck{
+	width: 120px;
+	margin-left: 300px;
+}
+
+.signButton{
+	width: 100px;
+	margin: 0 auto;
+	
+}

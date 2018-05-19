@@ -1,0 +1,102 @@
+@CHARSET "UTF-8";
+.body {
+	margin: 5% 17% 5% 17%;
+}
+/* 제목 */
+#title {
+	height: 180px;
+}
+
+#title h4 {
+	display: block;
+	float: left;
+	border: 1.5px solid grey;
+	border-radius: 0.5em;
+	width: 100px;
+	height: 100px;
+	text-align: center;
+	/* 제목을 중간으로 */
+	padding-top: 2%;
+}
+
+#title p1, p2 {
+	text-align: center;
+}
+
+#title p3 {
+	margin-top: 30%;
+}
+
+#title h2 {
+	display: block;
+	float: left;
+	maring: 0;
+}
+
+/* 제목의 작은제목 */
+#title2 {
+	margin: 3% 5% 5% 2%;
+}
+
+#title2 #image {
+	margin-left: 1.5%;
+	float: left;
+}
+
+.title2_ul li {
+	list-style: none;
+	font-size: 11px;
+}
+
+/* 제목아래 아이콘들 */
+.icons {
+	margin: 3% 5% 3% 5%;
+}
+
+.icons #icons {
+	display: block;
+	float: left;
+	margin: 0 4% 0 4%;
+}
+
+/* 내용부분 */
+#cnt h3 {
+	diplay: inline;
+	float: none;
+	border-top: 0.5px solid black;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 0;
+}
+
+.explain .explain_p {
+	width: 600px;
+	margin: 3% 15% 3% 15%;
+}
+/* 장소부분 */
+
+
+/* 평점부분 */
+.review .col-sm-4 {
+	padding: 0;
+	margin-bottom: 3%;
+	margin-top: 3%;
+}
+
+.review #user {
+	float: left;
+	margin-right: 1%;
+}
+
+.review h5 {
+	padding-bottom: 0;
+	padding-top: 2%;
+}
+
+.review #h6_p {
+	margin-bottom: 0;
+}
+
+.col-sm-4 #h6_p {
+	width: 250px;
+}
