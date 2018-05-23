@@ -59,8 +59,8 @@
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
-						</div> <img class="img-fluid" src="/resources/img/portfolio/06-thumbnail.jpg"
-						alt="">
+						</div> <img class="img-fluid"
+						src="/resources/img/portfolio/06-thumbnail.jpg" alt="">
 					</a>
 					<div class="portfolio-caption">
 						<h4>여행을 계획하세요</h4>
@@ -75,7 +75,7 @@
 
 
 	<!-- Planner Modals -->
-<%-- 	<%
+	<%-- 	<%
 		String member_code = (String) session.getAttribute("member_code");
 		if (member_code != null) {
 	%>
@@ -101,33 +101,33 @@
 									consectetur.</p>
 								<!-- Form 입력 란 -->
 								<div>
-									<form name="modalInput" id="modalInput" action="insertPlan.do"
-										method="get">
+									<form name="modalInput" id="modalInput" action="planner"
+										method="POST">
 										<div class="form-row" style="width: 650px; margin-left: 40px">
 											<!-- 시작일 -->
 											<div class="form-group col-md-6">
 												<label class="col-form-label" style="padding-right: 30px">시작일
-												</label> <input name="startDate" id="startDate6" type="date">
+												</label> <input name="start_date" id="start_date" type="date">
 
 											</div>
 											<!-- 종료일 -->
 											<div class="form-group col-md-6">
 												<label class="col-form-label" style="padding-right: 30px">종료일
-												</label> <input name="endDate" id="endDate6" type="date">
+												</label> <input name="end_date" id="end_date" type="date">
 
 											</div>
 										</div>
 										<!-- Plan Name -->
 										<div class="form-group">
-											<label>Plan Name</label> <input name="planName" type="text"
-												class="form-control" id="planName6"
+											<label>Plan Name</label> <input name="plan_name" type="text"
+												class="form-control" id="plan_name"
 												placeholder="Itinerary to Paris">
 										</div>
 
 										<!-- City -->
 										<div class="form-group">
-											<label>City</label> <input name="planCity" type="text"
-												class="form-control" id="planCity6" placeholder="Paris">
+											<label>City</label> <input name="plan_city" type="text"
+												class="form-control" id="plan_city" placeholder="Paris">
 										</div>
 										<button class="btn btn-primary" type="button">시작하기!</button>
 									</form>
@@ -140,7 +140,7 @@
 		</div>
 	</div>
 
-<%-- 	<%
+	<%-- 	<%
 		} else {
 	%>
 	<script type="text/javascript">
@@ -155,28 +155,31 @@
  --%>
 
 	<!-- Custom scripts for this template -->
-	<script src="../js/agency.min.js"></script>
+	<script src="/resources/js/agency.min.js"></script>
 
 	<script type="text/javascript">
 		$(".btn").click(function() {
-			if ($("#startDate6").val() > $("#endDate6").val()) {
+			if ($("#start_date").val() > $("#end_date").val()) {
 				alert("날짜 입력 오류");
-				$("#endDate6").focus();
+				$("#end_date").focus();
 			} else {
-				if ($("#startDate6").val() == "") {
+				if ($("#start_date").val() == "") {
 					alert("시작일 입력 오류");
-					$("#startDate6").focus();
+					$("#start_date").focus();
 				} else if ($("#endDate6").val() == "") {
 					alert("종료일 입력 오류");
-					$("#endDate6").focus();
-				} else if ($("#planName6").val() == "") {
+					$("#end_date").focus();
+				} else if ($("#plan_name").val() == "") {
 					alert("플랜 제목 입력 오류");
-					$("#planName6").focus();
-				} else if ($("#planCity6").val() == "") {
+					$("#plan_name").focus();
+				} else if ($("#plan_city").val() == "") {
 					alert("도시 입력 오류");
-					$("#planCity6").focus();
+					$("#plan_city").focus();
 				} else {
 					alert("환영합니다!");
+					$.getJSON("planner", function(data) {
+						console.log(data.length);
+					})
 					$("#modalInput").submit();
 				}
 			}

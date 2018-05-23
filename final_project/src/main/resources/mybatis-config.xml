@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-<typeAliases>
-    <package name="fianl_project.kosta180.domain"/>    
-  </typeAliases>
+	<typeAliases>
+		<package name="final_project.kosta180.domain"></package>
+	</typeAliases>
 </configuration>
 
 

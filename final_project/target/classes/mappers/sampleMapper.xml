@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="final_project.kosta180.mapper.sampleMapper">
-<select id="selectMemberCode" resultType="Integer">
-select member_code from member where member_id = #{member_id}
+<select id="selectMemberCode" resultType="String">
+select member_name from member where member_id = #{member_id}
 </select>
 </mapper>  
 
