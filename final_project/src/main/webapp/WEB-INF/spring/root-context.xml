@@ -36,4 +36,7 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	
+	<context:component-scan base-package="final_project.kosta180.persistence"></context:component-scan>
+	<context:component-scan base-package="final_project.kosta180.service"></context:component-scan>
+	
 </beans>

@@ -3,8 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="final_project.kosta180.mappers.SampleMapper">
-
+<mapper namespace="final_project.kosta180.mapper.sampleMapper">
+<select id="selectMemberCode" resultType="Integer">
+select member_code from member where member_id = #{member_id}
+</select>
 </mapper>  
 
 

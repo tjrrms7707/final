@@ -42,7 +42,7 @@
 					<div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" href="detail.do?plan_code=<%=str%>">
 							<div class="portfolio-hover"></div> <img class="img-fluid"
-							src="../img/portfolio/02-thumbnail.jpg" alt="">
+							src="/resources/img/portfolio/02-thumbnail.jpg" alt="">
 						</a>
 						<div class="portfolio-caption">
 							<h4>${plan.plan_name }</h4>
@@ -59,7 +59,7 @@
 							<div class="portfolio-hover-content">
 								<i class="fa fa-plus fa-3x"></i>
 							</div>
-						</div> <img class="img-fluid" src="../img/portfolio/06-thumbnail.jpg"
+						</div> <img class="img-fluid" src="/resources/img/portfolio/06-thumbnail.jpg"
 						alt="">
 					</a>
 					<div class="portfolio-caption">
@@ -75,11 +75,11 @@
 
 
 	<!-- Planner Modals -->
-	<%
+<%-- 	<%
 		String member_code = (String) session.getAttribute("member_code");
 		if (member_code != null) {
 	%>
-
+ --%>
 	<!-- 추가모달  -->
 	<div class="portfolio-modal modal fade" id="portfolioModal6"
 		tabindex="-1" role="dialog" aria-hidden="true">
@@ -140,19 +140,19 @@
 		</div>
 	</div>
 
-	<%
+<%-- 	<%
 		} else {
 	%>
 	<script type="text/javascript">
 	
 	
-		alert("로그인하세요.")
+	//	alert("로그인하세요.")
 	</script>
 
 	<%
 		}
 	%>
-
+ --%>
 
 	<!-- Custom scripts for this template -->
 	<script src="../js/agency.min.js"></script>
