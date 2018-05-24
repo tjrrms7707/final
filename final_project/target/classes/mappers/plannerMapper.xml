@@ -11,6 +11,26 @@ select * from plan where member_id = #{member_id}
 insert into plan(plan_code,start_date,end_date,plan_city,plan_name,member_id)
 values(plan_code_seq.nextval,#{start_date},#{end_date},#{plan_city},#{plan_name},#{member_id})
 </insert>
+
+<select id="maxPlanCode" parameterType="String" resultType="int">
+select Max(plan_code) from plan where member_id=#{member_id}
+</select>
+
+<insert id="insertList" parameterType="ListPlan">
+insert into list(list_code,plan_code,list_day) values(list_code_seq.nextval,#{plan_code},#{list_day})
+</insert>
+
+<select id="selectPlanCode" resultType="Plan" parameterType="int">
+select * from plan where plan_code = #{plan_code}
+</select>
+
+<insert id="insertAccom" parameterType="Accom">
+insert into accom(accom_code,accom_type,accom_name,accom_check_in,accom_check_out,accom_contents,list_code)
+values(accom_code_seq.nextval,#{accom_type},#{accom_name},#{accom_check_in},#{accom_check_out},#{accom_contents},#{list_code})
+</insert>
+<select id="selectAccom" parameterType="int" resultType="Accom">
+select * from accom where list_code=#{list_code}
+</select>
 </mapper>  
 
 

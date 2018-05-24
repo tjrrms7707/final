@@ -10,7 +10,7 @@
 		<li class="nav-item" id="link"><a class="nav-link" href="#">WithUs
 				모집하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a></li>
 		<li class="nav-item" id="link"><a class="nav-link"
-			href="selectPlan.do">Planner
+			href="planner">Planner
 				계획하기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</a></li>
 		<li class="nav-item" id="link"><a class="nav-link" href="listQA.do">WithUs
 				물어보기&nbsp;&nbsp;&nbsp;&nbsp;</a></li>

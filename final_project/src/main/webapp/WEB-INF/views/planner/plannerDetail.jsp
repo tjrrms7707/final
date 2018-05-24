@@ -1,23 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%
-	String plan_code = request.getParameter("plan_code");
-%>
 <!-- Custom styles for this template -->
-<link href="../css/agency.min.css" rel="stylesheet">
-<%@ include file="../module/head.jsp" %>
+<link href="/resources/css/agency.min.css" rel="stylesheet">
+<%@ include file="../include/head.jsp" %>
 </head>
 
-<%@ include file="../module/header.jsp" %>
-<%@ include file="../module/carousel.jsp" %>
+
 <body id="page-top">
+<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/carousel.jsp" %>
 
-
-	<%@ include file="../module/middleNav.jsp"%>
+	<%@ include file="../include/middleNav.jsp"%>
 
 
 	<!-- Portfolio Grid -->
@@ -51,26 +47,22 @@
 					<th scope="col">지출</th>
 				</tr>
 			</thead>
+		
 			<tbody>
 				<!-- DB에서 Plan_code에 해당하는 정보 가져오기 -->
-				<c:forEach var="list" items="${listPlan}" varStatus="i">
-					<c:set var="list_code" value="${list.list_code }"></c:set>
-
-					<%
-						int list_code = (int) pageContext.getAttribute("list_code");
-					%>
+				<c:forEach var="list" items="${listDay}" varStatus="i">
 					<tr>
-						<th scope="row">${list.list_code}</th>
-						<td>${dayList.get(i.index) }</td>
+						<th scope="row">${i.index+1 }</th>
+						<td>${list}</td>
 						<td>${plan.plan_city}</td>
 
 
 						<!-- 교통Part -->
 						<td>
 							<form
-								action="trans.do?plan_code=<%=plan_code%>&list_code=<%=list_code%>"
+								action="trans?list_code=${i.index+1 }"
 								method="post">
-								<a>${TransInfo.get(i.index) }건</a> <br>
+								<a>건</a> <br>
 								<div style="padding-top: 10px">
 									<input type="submit" value="교통관리"
 										class="btn btn-outline-secondary btn-sm">
@@ -80,9 +72,9 @@
 						<!-- 일정Part -->
 						<td>
 							<form
-								action="day.do?plan_code=<%=plan_code%>&list_code=<%=list_code%>"
+								action="day?list_code=${i.index+1 }"
 								method="post">
-								<a>${dayInfo.get(i.index) }건</a> <br>
+								<a>건</a> <br>
 								<div style="padding-top: 10px">
 									<input type="submit" value="일정관리"
 										class="btn btn-outline-secondary btn-sm">
@@ -92,9 +84,9 @@
 						<!-- 숙소Part -->
 						<td>
 							<form
-								action="accom.do?plan_code=<%=plan_code%>&list_code=<%=list_code%>"
+								action="accom?list_code=${i.index+1 }"
 								method="post">
-								<a>${accomInfo.get(i.index) }</a> <br>
+								<a></a> <br>
 								<div style="padding-top: 10px">
 									<input type="submit" value="숙소관리"
 										class="btn btn-outline-secondary btn-sm">
@@ -103,9 +95,9 @@
 						<!-- 지출Part -->
 						<td>
 							<form
-								action="spend.do?plan_code=<%=plan_code%>&list_code=<%=list_code%>"
+								action="spend.do?list_code=${i.index+1 }"
 								method="post">
-								<a>${SpendInfo.get(i.index) }건</a> <br>
+								<a>건</a> <br>
 								<div style="padding-top: 10px">
 									<input type="submit" value="지출관리"
 										class="btn btn-outline-secondary btn-sm">
@@ -120,9 +112,10 @@
 
 	</section>
 
-	<%@ include file="../module/footer.jsp"%>
+
 
 	<!-- Custom scripts for this template -->
-	<script src="../js/agency.min.js"></script>
+	<script src="/resources/js/agency.min.js"></script>
+		<%@ include file="../include/footer.jsp"%>
 </body>
 </html>

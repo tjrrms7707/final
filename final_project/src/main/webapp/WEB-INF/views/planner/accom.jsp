@@ -5,14 +5,14 @@
 <head>
 
 <!-- Custom styles for this template -->
-<link href="../css/agency.min.css" rel="stylesheet">
-<link href="../css/1day.css" rel="stylesheet">
-<%@ include file="../module/head.jsp" %>
+<link href="/resources/css/agency.min.css" rel="stylesheet">
+<link href="/resources/css/1day.css" rel="stylesheet">
+<%@ include file="../include/head.jsp" %>
 </head>
-<%@ include file="../module/header.jsp" %>
-<%@ include file="../module/carousel.jsp" %>
+<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/carousel.jsp" %>
 <body>
-	<%@ include file="../module/middleNav.jsp"%>
+	<%@ include file="../include/middleNav.jsp"%>
 
 	<!-- plan_code & list_code 추출 -->
 	<c:set var="list_code" value="${list_code }" />
@@ -30,7 +30,7 @@
 			<div class="col-lg-12 text-center">
 				<h2 class="section-heading text-uppercase">숙소관리</h2>
 				<h3 class="section-subheading text-muted">숙소정보를 작성, 편집할 수 있습니다.</h3>
-				<form action="detail.do?plan_code=<%=plan_code%>" method="post">
+				<form action="plannerDetail?plan_code=<%=plan_code%>" method="post">
                   <input type="submit" value="Day-List" class="btn btn-primary">
                </form>
 			</div>
@@ -53,7 +53,7 @@
 							<div class="row">
 
 								<form style="width: 650px; height: 390px; margin-right: 30px"
-									id="accomInput"
+									id="accom"
 									action="insertAccom.do?plan_code=<%=plan_code%>&list_code=<%=list_code%>"
 									method="post">
 
@@ -188,7 +188,7 @@
 
 
 	<!-- Custom scripts for this template -->
-	<script src="../js/agency.min.js"></script>
+	<script src="/resources/js/agency.min.js"></script>
 
 	<!-- Google Map  -->
 	<script>
@@ -292,7 +292,7 @@
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCALwb30V-kdqWWgZimc5bFCQ9M6MDrP4&libraries=places&callback=initAutocomplete"
 		async defer></script>
-	<%@ include file="../module/footer.jsp"%>
+	<%@ include file="../include/footer.jsp"%>
 
 </body>
 </html>

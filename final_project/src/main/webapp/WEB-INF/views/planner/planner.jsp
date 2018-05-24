@@ -12,12 +12,10 @@
 <%@ include file="../include/carousel.jsp"%>
 
 <body>
-
-
 	<%@ include file="../include/middleNav.jsp"%>
 
 	<!-- Portfolio Grid -->
-	<section class="bg-white" style="padding-bottom: 50px;">
+	<section class="bg-white" style="padding-bottom: 5px; padding-top:50px">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -31,28 +29,9 @@
 	<section class="bg-light" id="portfolio"
 		style="padding-top: 50px; padding-bottom: 50px;">
 		<div class="container">
-			<div class="row">
-
-				<!-- DB에 있는 플래너 출력 폼 -->
-				<c:forEach var="plan" items="${list }">
-					<c:set var="plan_code" value="${plan.plan_code }"></c:set>
-					<%
-						int str = (int) pageContext.getAttribute("plan_code");
-					%>
-					<div class="col-md-4 col-sm-6 portfolio-item">
-						<a class="portfolio-link" href="detail.do?plan_code=<%=str%>">
-							<div class="portfolio-hover"></div> <img class="img-fluid"
-							src="/resources/img/portfolio/02-thumbnail.jpg" alt="">
-						</a>
-						<div class="portfolio-caption">
-							<h4>${plan.plan_name }</h4>
-							<h5>${plan.plan_city }</h5>
-							<p class="text-muted">${plan.start_date }~${plan.end_date }</p>
-						</div>
-					</div>
-				</c:forEach>
+			<div class="row" id="planList">
 				<!-- 플래너추가 폼 -->
-				<div class="col-md-4 col-sm-6 portfolio-item">
+				<!-- 	<div class="col-md-4 col-sm-6 portfolio-item">
 					<a class="portfolio-link" data-toggle="modal"
 						href="#portfolioModal6">
 						<div class="portfolio-hover">
@@ -68,6 +47,26 @@
 						<p class="text-muted">###</p>
 					</div>
 				</div>
+ -->
+				<!-- DB에 있는 플래너 출력 폼 -->
+				<%-- 	<c:forEach var="plan" items="${list }">
+					<c:set var="plan_code" value="${plan.plan_code }"></c:set>
+					<%
+						int str = (int) pageContext.getAttribute("plan_code");
+					%>
+					<div class="col-md-4 col-sm-6 portfolio-item">
+						<a class="portfolio-link" href="detail.do?plan_code=<%=str%>">
+							<div class="portfolio-hover"></div> <img class="img-fluid"
+							src="/resources/img/portfolio/02-thumbnail.jpg" alt="">
+						</a>
+						<div class="portfolio-caption">
+							<h4>${plan.plan_name }</h4>
+							<h5>${plan.plan_city }</h5>
+							<p class="text-muted">${plan.start_date }~${plan.end_date }</p>
+						</div>
+					</div>
+				</c:forEach> --%>
+
 			</div>
 		</div>
 	</section>
@@ -96,7 +95,7 @@
 						<div class="col-lg-8 mx-auto">
 							<div class="modal-body">
 								<!-- Project Details Go Here -->
-								<h2 class="text-uppercase">Project Name</h2>
+								<h2 class="text-uppercase">Make Planner</h2>
 								<p class="item-intro text-muted">Lorem ipsum dolor sit amet
 									consectetur.</p>
 								<!-- Form 입력 란 -->
@@ -129,7 +128,7 @@
 											<label>City</label> <input name="plan_city" type="text"
 												class="form-control" id="plan_city" placeholder="Paris">
 										</div>
-										<button class="btn btn-primary" type="button">시작하기!</button>
+										<button class="btn btn-primary" type="button" id="plannerButton">시작하기!</button>
 									</form>
 								</div>
 							</div>
@@ -156,37 +155,7 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="/resources/js/agency.min.js"></script>
-
-	<script type="text/javascript">
-		$(".btn").click(function() {
-			if ($("#start_date").val() > $("#end_date").val()) {
-				alert("날짜 입력 오류");
-				$("#end_date").focus();
-			} else {
-				if ($("#start_date").val() == "") {
-					alert("시작일 입력 오류");
-					$("#start_date").focus();
-				} else if ($("#endDate6").val() == "") {
-					alert("종료일 입력 오류");
-					$("#end_date").focus();
-				} else if ($("#plan_name").val() == "") {
-					alert("플랜 제목 입력 오류");
-					$("#plan_name").focus();
-				} else if ($("#plan_city").val() == "") {
-					alert("도시 입력 오류");
-					$("#plan_city").focus();
-				} else {
-					alert("환영합니다!");
-					$.getJSON("planner", function(data) {
-						console.log(data.length);
-					})
-					$("#modalInput").submit();
-				}
-			}
-		});
-	</script>
-
-
+	<script src="/resources/js/planner.js"></script>
 	<%@ include file="../include/footer.jsp"%>
 
 
