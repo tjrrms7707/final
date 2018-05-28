@@ -6,29 +6,29 @@
 
 
 <!-- Custom styles for this template -->
-<link href="../css/agency.min.css" rel="stylesheet">
-<link href="../css/1day.css" rel="stylesheet">
-<%@ include file="../module/head.jsp" %>
+<link href="/resources/css/agency.min.css" rel="stylesheet">
+<link href="resources/css/1day.css" rel="stylesheet">
+<%@ include file="../include/head.jsp" %>
 </head>
 
-<%@ include file="../module/header.jsp" %>
-<%@ include file="../module/carousel.jsp" %>
+<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/carousel.jsp" %>
 <body>
 
-	<%@ include file="../module/middleNav.jsp"%>
+	<%@ include file="../include/middleNav.jsp"%>
 
 	<!-- plan_code & list_code 추출 -->
 	<c:set var="list_code" value="${list_code }" />
 	<c:set var="plan_code" value="${plan_code }" />
 	<%
 		String plan_code = (String) pageContext.getAttribute("plan_code");
-		String list_code = (String) pageContext.getAttribute("list_code");
+		int list_code = (int) pageContext.getAttribute("list_code");
 	%>
-
+	<input type="hidden" value="${list_code }" id="code">
 
 
 	<section class="bg-white" id="transOutput"
-		style="padding-bottom: 0px; padding-top: 100px;">
+		style="padding-bottom: 0px; padding-top: 50px;">
 		<div class="row">
 			<div class="col-lg-12 text-center">
 				<h2 class="section-heading text-uppercase">일정관리</h2>
@@ -57,20 +57,19 @@
 							<div class="row">
 
 								<form style="width: 650px; height: 300px; margin-right: 30px"
-									action="insertDay.do?plan_code=<%=plan_code%>&list_code=<%=list_code%>"
-									id="day" method="post">
+									action="insert_Day" id="insertDay">
 									<!-- 시간  -->
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="inputTime" class="col-form-label">시간</label> <input
-												type="text" class="form-control" id="inputTime"
-												name="day_time" placeholder="09:00">
+											<label for="inputTime" class="col-form-label">시간</label> 
+											<input type="time" class="form-control" id="day_time"
+												name="day_time" >
 										</div>
 
 										<!-- 제목  -->
 										<div class="form-group col-md-6">
 											<label for="inputsub" class="col-form-label">제목</label> <input
-												type="text" class="form-control" id="inputsub"
+												type="text" class="form-control" id="day_title"
 												name="day_title" placeholder="오르세 미술관">
 										</div>
 									</div>
@@ -80,7 +79,7 @@
 									<div class="form-group">
 										<label for="inputText">상세내용</label>
 										<textarea class="form-control" style="height: 174px"
-											id="inputText" rows="3"
+											id="day_contents" rows="3"
 											placeholder="Van Gogh, The Starry Night " name="day_contents"></textarea>
 									</div>
 								</form>
@@ -114,19 +113,19 @@
 	<section class="bg-white" style="padding-top: 50px; padding-bottom: 0px">
 		<div class="container">
 			<div class="row">
-				<table class="table table-hover">
+				<table class="table table-hover;" style="text-align:center">
 					<thead>
 						<tr>
 							<th scope="col">#</th>
 							<th scope="col">시간</th>
-							<th scope="col" style="padding-left: 80px">제목</th>
-							<th scope="col" style="padding-left: 330px">상세내용</th>
+							<th scope="col" style="width:300px">제목</th>
+							<th scope="col" style="padding-left: 0px">상세내용</th>
 							<th scope="col">삭제</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="tbody">
 
-						<c:forEach var="list" items="${listDay }" varStatus="i">
+				<%-- 		<c:forEach var="list" items="${listDay }" varStatus="i">
 
 							<!-- plan_code & list_code 추출 -->
 							<c:set var="day_code" value="${list.day_code }" />
@@ -162,8 +161,8 @@
 									</form>
 								</td>
 
-							</tr>
-						</c:forEach>
+							</tr> 
+						</c:forEach>--%>
 
 					</tbody>
 				</table>
@@ -174,7 +173,7 @@
 
 
 	<!-- Custom scripts for this template -->
-	<script src="../js/agency.min.js"></script>
+	<script src="/resources/js/agency.min.js"></script>
 
 	<!-- Google Map  -->
 	<script>
@@ -248,30 +247,13 @@
 			});
 		}
 
-		//button Submit
-		$("#button1").click(function() {
-
-			if ($("#inputTime").val() == "") {
-				alert("시간 입력 오류");
-				$("#inputTime").focus();
-
-			} else if ($("#inputsub").val() == "") {
-				alert("제목 입력 오류");
-				$("#inputsub").focus();
-			} else if ($("#inputText").val() == "") {
-				alert("내용 입력 오류");
-				$("#inputText").focus();
-			}else{
-	            $("#day").submit();
-	         }
-		});
 	</script>
 
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCALwb30V-kdqWWgZimc5bFCQ9M6MDrP4&libraries=places&callback=initAutocomplete"
 		async defer></script>
-
-	<%@ include file="../module/footer.jsp"%>
+	<script src="/resources/js/1day.js"></script>
+	<%@ include file="../include/footer.jsp"%>
 
 </body>
 </html>

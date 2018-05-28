@@ -7,13 +7,13 @@
 <head>
 
 <!-- Custom styles for this template -->
-<link href="../css/agency.min.css" rel="stylesheet">
-<%@ include file="../module/head.jsp"%>
+<link href="/resources/css/agency.min.css" rel="stylesheet">
+<%@ include file="../include/head.jsp"%>
 </head>
-<%@ include file="../module/header.jsp"%>
-<%@ include file="../module/carousel.jsp"%>
+<%@ include file="../include/header.jsp"%>
+<%@ include file="../include/carousel.jsp"%>
 <body>
-	<%@ include file="../module/middleNav.jsp"%>
+	<%@ include file="../include/middleNav.jsp"%>
 	<!-- plan_code & list_code 추출 -->
 	<c:set var="list_code" value="${list_code }" />
 	<c:set var="plan_code" value="${plan_code }" />
@@ -365,7 +365,7 @@
 	         }
 		});
 	</script>
-	<%@ include file="../module/footer.jsp"%>
+	<%@ include file="../include/footer.jsp"%>
 
 </body>
 

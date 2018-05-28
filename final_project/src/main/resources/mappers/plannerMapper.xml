@@ -20,17 +20,37 @@ select Max(plan_code) from plan where member_id=#{member_id}
 insert into list(list_code,plan_code,list_day) values(list_code_seq.nextval,#{plan_code},#{list_day})
 </insert>
 
+<select id="selectList" parameterType="int" resultType="ListPlan">
+select * from list where plan_code=#{plan_code} order by list_code asc
+</select>
+
 <select id="selectPlanCode" resultType="Plan" parameterType="int">
 select * from plan where plan_code = #{plan_code}
 </select>
-
+<!-- 숙소 -->
 <insert id="insertAccom" parameterType="Accom">
-insert into accom(accom_code,accom_type,accom_name,accom_check_in,accom_check_out,accom_contents,list_code)
-values(accom_code_seq.nextval,#{accom_type},#{accom_name},#{accom_check_in},#{accom_check_out},#{accom_contents},#{list_code})
+insert into accom(accom_type,accom_name,accom_check_in,accom_check_out,accom_contents,list_code)
+values(#{accom_type},#{accom_name},#{accom_check_in},#{accom_check_out},#{accom_contents},#{list_code})
 </insert>
 <select id="selectAccom" parameterType="int" resultType="Accom">
 select * from accom where list_code=#{list_code}
 </select>
+<delete id="deletAccom" parameterType="int">
+delete from accom where list_code =#{list_code}
+</delete>
+<!-- 일정 -->
+<select id="selectDay" parameterType="int" resultType="Day">
+select * from day where list_code=#{list_code} order by day_time asc
+</select>
+<insert id="insertDay" parameterType="Day">
+insert into day(day_code,day_title,day_time,day_contents,list_code)
+values(day_code_seq.nextval,#{day_title},#{day_time},#{day_contents},#{list_code})
+</insert>
+<delete id="deleteDay" parameterType="int">
+delete from day where day_code=#{day_code}
+
+</delete>
+
 </mapper>  
 
 

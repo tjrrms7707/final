@@ -16,13 +16,12 @@
 
 	<!-- plan_code & list_code 추출 -->
 	<c:set var="list_code" value="${list_code }" />
-	<c:set var="plan_code" value="${plan_code }" />
 	<%
 		String plan_code = (String) pageContext.getAttribute("plan_code");
-		String list_code = (String) pageContext.getAttribute("list_code");
+		int list_code =(int)pageContext.getAttribute("list_code");
 	%>
-
-
+		<input type="hidden" id="list_code" value="${list_code }">
+		
 
 	<section class="bg-white" id="transOutput"
 		style="padding-bottom: 0px; padding-top: 100px;">
@@ -54,16 +53,16 @@
 
 								<form style="width: 650px; height: 390px; margin-right: 30px"
 									id="accom"
-									action="insertAccom.do?plan_code=<%=plan_code%>&list_code=<%=list_code%>"
+									action="insertAccom"
 									method="post">
-
+								<input type="hidden" name="list_code" value=${list_code }>
 									<!--1행 시작  -->
 									<div class="form-row">
 
 										<!-- 숙소타입 -->
 										<div class="col-3">
 											<label for="accomType" class="col-form-label">숙소타입</label> <select
-												class="custom-select" id="acoomType" name="accom_type">
+												class="custom-select" id="accom_type" name="accom_type">
 												<option selected>선택</option>
 												<option value="호텔">호텔</option>
 												<option value="호스텔">호스텔</option>
@@ -77,7 +76,7 @@
 										<!-- 숙소명  -->
 										<div class="form-group col-md-9">
 											<label for="accomName" class="col-form-label">숙소명</label> <input
-												type="text" class="form-control" id="accomName"
+												type="text" class="form-control" id="accom_name"
 												name="accom_name" placeholder="Hilton Palace Paris">
 										</div>
 
@@ -89,12 +88,12 @@
 										<!-- 체크인 -->
 										<div class="form-group col-md-4">
 											<label class="col-form-label" style="padding-right: 30px">Check-in
-											</label> <input name="accom_check_in" id="startDate6" type="date">
+											</label> <input name="accom_check_in" id="accom_check_in" type="date">
 										</div>
 										<div class="form-group col-md-4">
 
 											<label class="col-form-label" style="padding-right: 30px">Check-out
-											</label> <input name="accom_check_out" id="endDate6" type="date">
+											</label> <input name="accom_check_out" id="accom_check_out" type="date">
 										</div>
 									</div>
 									<!-- 2행 끝  -->
@@ -103,7 +102,7 @@
 									<div class="form-group">
 										<label for="Textarea1">상세내용</label>
 										<textarea class="form-control" style="height: 174px"
-											id="Textarea1" rows="3" name="accom_contents"
+											id="accom_contents" rows="3" name="accom_contents"
 											placeholder="Van Gogh, The Starry Night "></textarea>
 									</div>
 									<!-- 주소  -->
@@ -146,9 +145,8 @@
 							<th scope="col" style="width: 57px">삭제</th>
 						</tr>
 					</thead>
-					<tbody>
-
-						<!-- 반복 PART -->
+					<tbody id="tbody">
+					<%-- 	<!-- 반복 PART -->
 						<tr>
 							<c:if test="${accom ne null}">
 								<th scope="row">1</th>
@@ -176,7 +174,7 @@
 									</form>
 								</td>
 						</tr>
-						</c:if>
+						</c:if> --%>
 					</tbody>
 				</table>
 			</div>
@@ -189,7 +187,7 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="/resources/js/agency.min.js"></script>
-
+	<script src="/resources/js/accom.js"></script>
 	<!-- Google Map  -->
 	<script>
 		function initAutocomplete() {
@@ -262,33 +260,8 @@
 			});
 		}
 
-		$("#submitbtn").click(function() {
-	         if ($("#startDate6").val() > $("#endDate6").val()) {
-	            alert("날짜 입력 오류");
-	            $("#endDate6").focus();
-	         } else {
-	            if ($("#startDate6").val() == "") {
-	               alert("시작일 입력 오류");
-	               $("#startDate6").focus();
-	            } else if ($("#endDate6").val() == "") {
-	               alert("종료일 입력 오류");
-	               $("#endDate6").focus();
-	            }
-
-	            else if ($("#accomName").val() == "") {
-	               alert("숙소명 입력 오류");
-	               $("#accomName").focus();
-	            } else if ($("#acoomType").val() == "선택") {
-	               alert("숙소타입 입력 오류");
-	               $("#acoomType").focus();
-	            }
-	            else{
-	               $("#accomInput").submit();
-	            }
-	         }
-	      });
 	</script>
-
+	
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCALwb30V-kdqWWgZimc5bFCQ9M6MDrP4&libraries=places&callback=initAutocomplete"
 		async defer></script>
