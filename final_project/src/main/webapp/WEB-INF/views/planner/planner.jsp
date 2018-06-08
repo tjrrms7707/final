@@ -155,7 +155,7 @@
 
 	<!-- Custom scripts for this template -->
 	<script src="/resources/js/agency.min.js"></script>
-	<script src="/resources/js/planner.js"></script>
+	<script src="/resources/js/planner/planner.js"></script>
 	<%@ include file="../include/footer.jsp"%>
 
 

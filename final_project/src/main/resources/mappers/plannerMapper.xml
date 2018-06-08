@@ -48,9 +48,28 @@ values(day_code_seq.nextval,#{day_title},#{day_time},#{day_contents},#{list_code
 </insert>
 <delete id="deleteDay" parameterType="int">
 delete from day where day_code=#{day_code}
-
+</delete>
+<insert id="insertTrans" parameterType="Trans">
+insert into trans(trans_code,trans_type,trans_start_time,trans_start_location,trans_end_time,trans_end_location,trans_contents,list_code)
+values(trans_code_seq.nextval,#{trans_type},#{trans_start_time},#{trans_start_location},#{trans_end_time},#{trans_end_location},#{trans_contents},#{list_code})
+</insert>
+<select id="selectTrans" parameterType="int" resultType="trans">
+select * from trans where list_code =#{list_code}
+</select>
+<delete id="deleteTrans" parameterType="int">
+delete from trans where trans_code =#{trans_code}
 </delete>
 
+<select id="countTrans" parameterType="int" resultType="int">
+select count(*) from trans where list_code=#{list_code}
+</select>
+<select id="countDay" parameterType="int" resultType="int">
+select count(*) from Day where list_code=#{list_code}
+</select>
+
+<select id="countAccom" parameterType="int" resultType="int">
+select count(*) from Accom where list_code=#{list_code}
+</select>
 </mapper>  
 
 

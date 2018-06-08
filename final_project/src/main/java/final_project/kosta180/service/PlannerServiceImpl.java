@@ -10,6 +10,7 @@ import final_project.kosta180.domain.Accom;
 import final_project.kosta180.domain.Day;
 import final_project.kosta180.domain.ListPlan;
 import final_project.kosta180.domain.Plan;
+import final_project.kosta180.domain.Trans;
 import final_project.kosta180.persistence.PlannerDAOImpl;
 
 @Service
@@ -76,6 +77,37 @@ public class PlannerServiceImpl implements PlannerService {
 	@Override
 	public void deletAccomService(int list_code) throws Exception {
 		dao.deletAccom(list_code);
+	}
+
+	@Override
+	public void insertTransService(Trans trans) throws Exception {
+		dao.insertTrans(trans);
+	}
+
+	@Override
+	public List<Trans> selectTransService(int list_code) throws Exception {
+		return dao.selectTrans(list_code);
+	}
+
+	@Override
+	public void deleteTransService(int trans_code) throws Exception {
+		dao.deleteTrans(trans_code);
+	}
+
+	@Override
+	public int countTransService(int list_code) throws Exception {
+		return dao.countTrans(list_code);
+	}
+
+	@Override
+	public int countDayService(int list_code) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.countDay(list_code);
+	}
+
+	@Override
+	public int countAccomService(int list_code) throws Exception {
+		return dao.countAccom(list_code);
 	}
 
 }

@@ -42,7 +42,6 @@
 						<th scope="col">교통</th>
 						<th scope="col">일정</th>
 						<th scope="col">숙소</th>
-						<th scope="col">지출</th>
 					</tr>
 				</thead>
 				
@@ -58,9 +57,10 @@
 
 							<!-- 교통Part -->
 							<td>
-								<form action="trans" method="post">
+								<form action="trans">
 									<input type="hidden" value=${listPlan.get(i.index).list_code} name="list_code">
-									<a>건</a> <br>
+									<input type="hidden" value=${listPlan.get(i.index).plan_code} name="plan_code">
+									<a>${countTrans.get(i.index) }건</a> <br>
 									<div style="padding-top: 10px">
 										<input type="submit" value="교통관리"
 											class="btn btn-outline-secondary btn-sm">
@@ -71,7 +71,8 @@
 							<td>
 								<form action="day">
 									<input type="hidden" value=${listPlan.get(i.index).list_code} name="list_code">
-									<a>건</a> <br>
+									<input type="hidden" value=${listPlan.get(i.index).plan_code} name="plan_code">
+									<a>${countDay.get(i.index) }건</a> <br>
 									<div style="padding-top: 10px">
 										<input type="submit" value="일정관리"
 											class="btn btn-outline-secondary btn-sm">
@@ -80,24 +81,16 @@
 
 							<!-- 숙소Part -->
 							<td>
-								<form action="accom" method="post">
-									<a></a> <br> <input type="hidden" value=${listPlan.get(i.index).list_code}
-										name="list_code">
+								<form action="accom" method="get">
+									<input type="hidden" value=${listPlan.get(i.index).list_code} name="list_code">
+									<input type="hidden" value=${listPlan.get(i.index).plan_code} name="plan_code">
+									<a>${countAccom.get(i.index) }건</a> <br>
 									<div style="padding-top: 10px">
 										<input type="submit" value="숙소관리"
 											class="btn btn-outline-secondary btn-sm">
 								</form>
 							</td>
 							<!-- 지출Part -->
-							<td>
-								<form action="spend" method="post">
-									<input type="hidden" value=${listPlan.get(i.index).list_code} name="list_code">
-									<a>건</a> <br>
-									<div style="padding-top: 10px">
-										<input type="submit" value="지출관리"
-											class="btn btn-outline-secondary btn-sm">
-								</form>
-							</td>
 						</tr>
 					</c:forEach>
 

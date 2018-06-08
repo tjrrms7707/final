@@ -17,13 +17,6 @@
 
 	<%@ include file="../include/middleNav.jsp"%>
 
-	<!-- plan_code & list_code 추출 -->
-	<c:set var="list_code" value="${list_code }" />
-	<c:set var="plan_code" value="${plan_code }" />
-	<%
-		String plan_code = (String) pageContext.getAttribute("plan_code");
-		int list_code = (int) pageContext.getAttribute("list_code");
-	%>
 	<input type="hidden" value="${list_code }" id="code">
 
 
@@ -33,7 +26,8 @@
 			<div class="col-lg-12 text-center">
 				<h2 class="section-heading text-uppercase">일정관리</h2>
 				<h3 class="section-subheading text-muted">상세일정을 작성, 편집할 수 있습니다.</h3>
-				<form action="detail.do?plan_code=<%=plan_code%>" method="post">
+				<form action="plannerDetail" method="get">
+                  <input type="hidden" value="${plan_code }" name="plan_code" class="btn btn-primary">
                   <input type="submit" value="Day-List" class="btn btn-primary">
                </form>
 			</div>
@@ -252,7 +246,7 @@
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCALwb30V-kdqWWgZimc5bFCQ9M6MDrP4&libraries=places&callback=initAutocomplete"
 		async defer></script>
-	<script src="/resources/js/1day.js"></script>
+	<script src="/resources/js/planner/1day.js"></script>
 	<%@ include file="../include/footer.jsp"%>
 
 </body>
